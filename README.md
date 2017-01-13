@@ -1,6 +1,6 @@
 # FlowFeed
 
-## A customizable news and research feed.
+## A customizable news and research feed
 
 ### v1.0 Desired Functionalities
 
