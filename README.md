@@ -2,7 +2,7 @@
 
 ## A customizable news and research feed.
 
-### v1.0 Desired Functionalities:
+### v1.0 Desired Functionalities
 
 Initially, FlowFeed will be specifically for programmers to quickly and easily get information from three searchable content resources: **Medium**, **StackOverflow**, and **Github**.
 
