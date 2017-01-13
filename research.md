@@ -2,13 +2,15 @@
 
 ## APIs
 
+### Version 1
+
 * [Medium](https://github.com/Medium/medium-api-docs)
 
 * [StackOverflow (StackExchange, really)](https://api.stackexchange.com/docs)
 
 * [GitHub](https://developer.github.com/v3/)
 
-### Additional APIs for Future Versions
+### Version 2 & Beyond
 
 * [Google](https://developers.google.com/custom-search/json-api/v1/overview)
 
@@ -51,4 +53,4 @@
 
 [ProgrammableWeb API Directory](https://www.programmableweb.com/category/api/apis)
 
-[List of public APIs](https://github.com/toddmotto/public-apis)
+[toddmotto's list of public APIs](https://github.com/toddmotto/public-apis)
