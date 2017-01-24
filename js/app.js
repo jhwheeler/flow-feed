@@ -1,5 +1,5 @@
 var GitHub_Base_URL = 'https://api.github.com/search/repositories';
-var StackOverFlow_Base_URL = 'https://api.stackoverflow.com/2.2/search';
+var StackOverFlow_Base_URL = 'https://api.stackexchange.com/2.2/search';
 
 function getGitHub(searchTerm, callback) {
     var query = {
@@ -11,13 +11,14 @@ function getGitHub(searchTerm, callback) {
 function getStack(searchTerm, callback) {
     var query = {
         intitle: searchTerm,
-        jsonp: callback
+        site: "stackoverflow"
     }
     $.ajax({
             type: 'GET',
             url: StackOverFlow_Base_URL,
             async: false,
-            jsonpCallback: 'callback',
+            data: query,
+            jsonpCallback: 'JSON_CALLBACK',
             contentType: "application/json",
             dataType: 'jsonp',
             success: callback
