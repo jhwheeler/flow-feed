@@ -37,7 +37,8 @@ p {
 }
 
 .search-form {
-    margin: 0 auto;
+    position: absolute;
+    margin: 10px;
     text-align: center;
 }
 
