@@ -2,9 +2,9 @@
 
 ## Interactive research feed: the latest news, code, and answers all at your fingertips.
 
-### v1.0 
+### v1.0: Set to Release 10 Jan 2017 
 
-FlowFeed has been designed specifically for programmers to quickly and easily get information from three searchable content resources useful to our field: **Twitter**, **StackOverflow**, and **Github**.
+FlowFeed is being designed specifically for programmers to quickly and easily get information from three searchable content resources useful to our field: **Twitter**, **StackOverflow**, and **Github**.
 
  * Search the latest news, repositories, and questions/answers from Twitter, GitHub, and StackOverflow, respectively.
  * Focus on and enlarge one of the three for a more fluid reading experience.
