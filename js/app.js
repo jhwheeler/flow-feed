@@ -1,5 +1,8 @@
 var GitHub_Base_URL = 'https://api.github.com/search/repositories';
 var StackOverFlow_Base_URL = 'https://api.stackexchange.com/2.2/search';
+var Twitter_Base_URL = 'https://twitter.com/search';
+
+function getTwitter(searchTerm, callback)
 
 function getGitHub(searchTerm, callback) {
     var query = {
