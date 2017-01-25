@@ -23,16 +23,6 @@ function getStack(searchTerm, callback) {
             dataType: 'jsonp',
             success: callback
     });
-    /*$.ajax({
-            type: "GET",
-            url: StackOverFlow_Base_URL,
-            client_id: 8837,
-            key: "NBo4EBEDNt7nncSaVaIybg((",
-            processData: false,
-            data: query,
-            dataType: "json",
-            success: callback
-    });*/
 }
 
 function displayGitData(data) {

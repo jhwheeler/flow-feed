@@ -12,16 +12,41 @@
       <body>
           <header>
               <h1>Flow Feed</h1>
+              <h2>Interactive news and research feed: the latest answers, code, and news all at your fingertips.</h2>
           </header>
           <main>
           <div class="search-area js-search-area">
-              <h2>Search:</h2>
-              <form action="#" class="js-search-form">
-                  <input type="text" class="js-query">
+              <form action="#" class="search-form js-search-form">
+                  <input type="text" placeholder="What do you want to know?" class="js-query">
                   <input type="submit" class="search-button" value="search">
               </form>
           </div>
           <div class="search-results js-search-results">
+              <div class="source-container js-source-container" id="source-container-1">
+                  <div class="source-header">
+                      <a href="https://twitter.com">
+                          <!-- <img href="./images/twitter-logo.svg"> -->
+                          <h3>Twitter</h3>
+                      </a>
+                  </div>
+              </div>
+              <div class="source-container js-source-container" id="source-container-2">
+                  <div class="source-header">
+                      <a href="https://github.com">
+                          <!-- <img href="./images/github-logo.svg"> -->
+                          <h3>GitHub</h3>
+                      </a>
+                  </div>
+              </div>
+              <div class="source-container js-source-container" id="source-container-3">
+                  <div class="source-header">
+                      <a href="https://stackoverflow.com">
+                          <!-- <img href="./images/stackoverflow-logo.svg"> -->
+                          <h3>StackOverflow</h3>
+                      </a>
+                  </div>
+              </div>
+          </div>
 
 
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
