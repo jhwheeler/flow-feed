@@ -37,10 +37,12 @@ p {
     text-align: center;
     margin: 0 auto;
     padding-bottom: 20px;
+    position: relative;
 }
 
 .search-form {
     position: absolute;
+    float: left;
     margin: 10px;
     text-align: center;
 }
@@ -79,7 +81,8 @@ input[type="text"] {
 
 .suggested-search {
     margin-top: 40px;
-    display: block;
+    position: absolute;
+    display: inline-block;
     color: #f2f2f2;
 
 }
@@ -93,6 +96,12 @@ input[type="text"] {
     color: #f2f2f2;
     background: transparent;
     border: 1px solid #f2f2f2;
+    cursor: pointer;
+}
+
+.suggested-topic:hover {
+    background: #f2f2f2;
+    color: #2f51ae;
 }
 
 .search-results {
