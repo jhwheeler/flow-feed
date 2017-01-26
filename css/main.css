@@ -77,6 +77,24 @@ input[type="text"] {
     color: #f2f2f2;
 }
 
+.suggested-search {
+    margin-top: 40px;
+    display: block;
+    color: #f2f2f2;
+
+}
+
+.suggested-topic {
+    display: inline-block;
+    text-align: center;
+    font-size: 14px;
+    padding: 5px;
+    border-radius: 5px;
+    color: #f2f2f2;
+    background: transparent;
+    border: 1px solid #f2f2f2;
+}
+
 .search-results {
     padding-top: 40px;
 }
