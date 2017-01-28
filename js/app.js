@@ -52,12 +52,10 @@ function displayGitData(data) {
     console.dir(data.items);
     var sourceElement = '';
     data.items.forEach(function(element) {
-       sourceElement += '<h4>' + element.full_name + '</h4>' + '<p>' + element.description + '</p>' + '<p>' + element.language + '</p>'  + '<p>' + element.stargazers_count + '</p>' + '<p>' + element.forks_count + '</p>' + '<p>' + element.updated_at + '</p>' + '\n';
+       sourceElement += '<div class="source-content-piece"><h4>' + element.full_name + '</h4>' + '<p class="repo-description">' + element.description + ' </p>' + '<div class="repo-language-circle"></div>' + '<p class="repo-language"> ' + element.language + ' </p>'  + '<p class="repo-stars">' + element.stargazers_count + ' </p>' + '<p class="repo-forks">' + element.forks_count + ' </p>' + '<p class="repo-updated">' + element.updated_at + '</p>' + '\n</div>';
            //
     });
     $('.js-github-source-content').html(sourceElement);
-
-
 }
 
 function displayStackData(data) {
