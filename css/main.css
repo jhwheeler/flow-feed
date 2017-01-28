@@ -33,10 +33,14 @@ p {
     color: #0b0a0c;
 }
 
+a {
+    text-decoration: none;
+}
+
 .search-area {
     text-align: center;
     margin: 0 auto;
-    padding-bottom: 20px;
+    padding-bottom: 40px;
     position: relative;
 }
 
@@ -72,7 +76,7 @@ input[type="text"] {
 }
 
 .search-button:hover {
-    background: #2f51ae; /* Old browsers */
+    background: #2f51ae;
     background: -moz-linear-gradient(left, #4ec8d3 0%, #2f51ae 100%);
     background: -webkit-linear-gradient(left, #4ec8d3 0%, #2f51ae 100%);
     background: linear-gradient(to right, #4ec8d3 0%, #2f51ae 100%);
@@ -80,7 +84,7 @@ input[type="text"] {
 }
 
 .suggested-search {
-    margin-top: 40px;
+    padding: 30px;
     position: absolute;
     display: inline-block;
     color: #f2f2f2;
@@ -109,7 +113,6 @@ input[type="text"] {
 }
 
 .source-container {
-    border: 1px solid gray;
     border-radius: 5px;
     margin: 20px;
 }
@@ -119,6 +122,8 @@ input[type="text"] {
     height: 80px;
     text-align: center;
     border-bottom: 1px solid #f2f2f2;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     padding: 20px;
     background-color: #f2f2f2;
 }
@@ -130,11 +135,12 @@ input[type="text"] {
 .twitter-title {
     font-family: Helvetica Neue, Helvetica, sans-serif;
     color: #151013;
-    font-size: 24px;
+    font-size: 44px;
     font-weight: 700;
     display: inline;
-    padding: none;
+    margin-bottom: 20px;
 }
+
 .source-content {
     background-color: #f2f2f2;
     padding: 10px;

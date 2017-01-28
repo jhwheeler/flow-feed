@@ -2,23 +2,48 @@ var GitHub_Base_URL = 'https://api.github.com/search/repositories';
 var StackOverFlow_Base_URL = 'https://api.stackexchange.com/2.2/search';
 var Twitter_Base_URL = 'https://api.twitter.com/1.1/search/tweets.json';
 
-function getTwitter(searchTerm, callback) {
-    var query = {
-        q: searchTerm
+var timeSince = function(date) {
+    if (typeof date !== 'object') {
+        date = new Date(date);
     }
-    $.ajax({
-        type: 'GET',
-        url: Twitter_Base_URL,
-        async: false,
-        dataType: 'jsonp',
-        data: query,
-        contentType: 'application/json',
-        owner_ID: '4096223488',
-        access_token: '4096223488-cVwLF9SCwqQFdRAc3TuWPzk5zCfkVn9mNjpV9VC',
-        access_token_secret: 'X4mbCDyeMXh3itnD99cy29mQPdUoUFptly443Ov15f8ak',
-        success: callback
-    })
-}
+
+    var seconds = Math.floor((new Date() - date) / 1000);
+    var intervalType;
+
+    var interval = Math.floor(seconds / 31536000);
+    if (interval >= 1) {
+        intervalType = 'year';
+    } else {
+        interval = Math.floor(seconds / 2592000);
+        if (interval >= 1) {
+            intervalType = 'month';
+        } else {
+            interval = Math.floor(seconds / 86400);
+            if (interval >= 1) {
+                intervalType = 'day';
+            } else {
+                interval = Math.floor(seconds / 3600);
+                if (interval >= 1) {
+                    intervalType = 'hour';
+                } else {
+                    interval = Math.floor(seconds / 60);
+                    if (interval >= 1) {
+                        intervalType = 'minute';
+                    } else {
+                        interval = seconds;
+                        intervalType = 'second';
+                    }
+                }
+            }
+        }
+    }
+
+    if (interval > 1 || interval === 0) {
+        intervalType += 's';
+    }
+
+    return interval + ' ' + intervalType;
+};
 
 function getGitHub(searchTerm, callback) {
     var query = {
@@ -44,52 +69,23 @@ function getStack(searchTerm, callback) {
     });
 }
 
-function displayTwitterData(data) {
-    console.dir(data.items);
+function getTwitter(searchTerm, callback) {
+    var query = {
+        q: searchTerm
+    }
+    $.ajax({
+        type: 'GET',
+        url: Twitter_Base_URL,
+        async: false,
+        dataType: 'jsonp',
+        data: query,
+        contentType: 'application/json',
+        owner_ID: '4096223488',
+        access_token: '4096223488-cVwLF9SCwqQFdRAc3TuWPzk5zCfkVn9mNjpV9VC',
+        access_token_secret: 'X4mbCDyeMXh3itnD99cy29mQPdUoUFptly443Ov15f8ak',
+        success: callback
+    })
 }
-
-var timeSince = function(date) {
-    if (typeof date !== 'object') {
-        date = new Date(date);
-    }
-
-    var seconds = Math.floor((new Date() - date) / 1000);
-    var intervalType;
-
-    var interval = Math.floor(seconds / 31536000);
-    if (interval >= 1) {
-        intervalType = 'year';
-    } else {
-        interval = Math.floor(seconds / 2592000);
-        if (interval >= 1) {
-            intervalType = 'month';
-        } else {
-            interval = Math.floor(seconds / 86400);
-            if (interval >= 1) {
-                intervalType = 'day';
-            } else {
-                interval = Math.floor(seconds / 3600);
-                if (interval >= 1) {
-                    intervalType = "hour";
-                } else {
-                    interval = Math.floor(seconds / 60);
-                    if (interval >= 1) {
-                        intervalType = "minute";
-                    } else {
-                        interval = seconds;
-                        intervalType = "second";
-                    }
-                }
-            }
-        }
-    }
-
-    if (interval > 1 || interval === 0) {
-        intervalType += 's';
-    }
-
-    return interval + ' ' + intervalType;
-};
 
 function displayGitData(data) {
     console.dir(data.items);
@@ -100,13 +96,17 @@ function displayGitData(data) {
        if (element.description === null) {
            element.description = 'No description...';
        }
-       sourceElement += '<div class="source-content-piece"><h4>' + element.full_name + '</h4>' + '<p class="repo-description">' + element.description + ' </p>' + '<div class="repo-language-circle"></div>' + '<p class="repo-language"> ' + element.language + ' </p>'  + '<div class="git-star"></div><p class="repo-stars"> ' + element.stargazers_count + ' </p>' + '<div class="git-fork"></div><p class="repo-forks"> ' + element.forks_count + ' </p>' + '<p class="repo-updated">Updated ' + updatedSince + ' ago</p>' + '\n</div>';
+       sourceElement += '<div class="source-content-piece"><a href="' + element.html_url + '" target="_blank"><h4>' + element.full_name + '</h4></a>' + '<p class="repo-description">' + element.description + ' </p>' + '<div class="repo-language-circle"></div>' + '<p class="repo-language"> ' + element.language + ' </p>'  + '<div class="git-star"></div><p class="repo-stars"> ' + element.stargazers_count + ' </p>' + '<div class="git-fork"></div><p class="repo-forks"> ' + element.forks_count + ' </p>' + '<p class="repo-updated">Updated ' + updatedSince + ' ago</p>' + '\n</div>';
            //
     });
     $('.js-github-source-content').html(sourceElement);
 }
 
 function displayStackData(data) {
+    console.dir(data.items);
+}
+
+function displayTwitterData(data) {
     console.dir(data.items);
 }
 

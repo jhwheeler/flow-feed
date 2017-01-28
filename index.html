@@ -13,12 +13,12 @@
     </head>
       <body>
           <header>
-              <div class='row'>
-                  <div class='col-12'>
-                      <h1>FlowFeed</h1>
-                      <h2>Interactive research feed: the latest answers, code, and news all at your fingertips.</h2>
-                  </div>
+          <div class='row'>
+              <div class='col-12'>
+                  <h1>FlowFeed</h1>
+                  <h2>Interactive research feed: the latest answers, code, and news all at your fingertips.</h2>
               </div>
+          </div>
           </header>
           <main>
           <div class='search-area js-search-area'>
@@ -31,14 +31,12 @@
                   </div>
                   <div class='col-6'>
                       <div class='suggested-search js-suggested-search'>
-                          <span>Suggested:  </span>
+                          <span>Hot Topics: </span>
                           <button class='suggested-topic js-suggested-topic'>Javascript</button>
                           <button class='suggested-topic js-suggested-topic'>Node</button>
                           <button class='suggested-topic js-suggested-topic'>React</button>
                           <button class='suggested-topic js-suggested-topic'>Vue</button>
                           <button class='suggested-topic js-suggested-topic'>Angular</button>
-                          <button class='suggested-topic js-suggested-topic'>Python</button>
-                          <button class='suggested-topic js-suggested-topic'>Linux</button>
                       </div>
                   </div>
               </div>
@@ -46,21 +44,10 @@
           <div class='row'>
               <div class='search-results js-search-results'>
                   <div class='col-4'>
-                      <div class='source-container js-source-container' id='source-container-1'>
-                          <div class='source-header'>
-                              <a href='https://twitter.com' class='source-title'>
-                                  <img src='./images/Twitter/Twitter_Logo_Blue.svg' alt='twitter logo' height='42'>
-                                  <h3 class='twitter-title'>Twitter</h3>
-                              </a>
-                          </div>
-                          <div class='source-content js-source-content'></div>
-                      </div>
-                  </div>
-                  <div class='col-4'>
                       <div class='source-container js-source-container' id='source-container-2'>
                           <div class='source-header'>
-                              <a href='https://github.com' class='source-title'>
-                                  <img alt='GitHub Logo' src='./images/GitHub-Logos/GitHub_Logo.png' height='42'>
+                              <a href='https://github.com' class='source-title' target='_blank'>
+                                  <img alt='GitHub Logo' src='./images/GitHub-Logos/GitHub_Logo.png' height='60'>
                               </a>
                           </div>
                           <div class='source-content js-github-source-content'></div>
@@ -69,12 +56,23 @@
                   <div class='col-4'>
                       <div class='source-container js-source-container' id='source-container-3'>
                           <div class='source-header'>
-                              <a href='https://stackoverflow.com' class='source-title'>
-                                  <img src='./images/StackOverflow/so-logo.svg' alt='stack overflow logo'>
+                              <a href='https://stackoverflow.com' class='source-title' target='_blank'>
+                                  <img src='./images/StackOverflow/so-logo.svg' alt='stack overflow logo' height='60'>
                               </a>
                           </div>
                           <div class='source-content js-source-content'>
                           </div>
+                      </div>
+                  </div>
+                  <div class='col-4'>
+                      <div class='source-container js-source-container' id='source-container-1'>
+                          <div class='source-header'>
+                              <a href='https://twitter.com' class='source-title' target='_blank'>
+                                  <img src='./images/Twitter/Twitter_Logo_Blue.svg' alt='twitter logo' height='60'>
+                                  <h3 class='twitter-title'>Twitter</h3>
+                              </a>
+                          </div>
+                          <div class='source-content js-source-content'></div>
                       </div>
                   </div>
               </div>
