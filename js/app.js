@@ -48,11 +48,59 @@ function displayTwitterData(data) {
     console.dir(data.items);
 }
 
+var timeSince = function(date) {
+    if (typeof date !== 'object') {
+        date = new Date(date);
+    }
+
+    var seconds = Math.floor((new Date() - date) / 1000);
+    var intervalType;
+
+    var interval = Math.floor(seconds / 31536000);
+    if (interval >= 1) {
+        intervalType = 'year';
+    } else {
+        interval = Math.floor(seconds / 2592000);
+        if (interval >= 1) {
+            intervalType = 'month';
+        } else {
+            interval = Math.floor(seconds / 86400);
+            if (interval >= 1) {
+                intervalType = 'day';
+            } else {
+                interval = Math.floor(seconds / 3600);
+                if (interval >= 1) {
+                    intervalType = "hour";
+                } else {
+                    interval = Math.floor(seconds / 60);
+                    if (interval >= 1) {
+                        intervalType = "minute";
+                    } else {
+                        interval = seconds;
+                        intervalType = "second";
+                    }
+                }
+            }
+        }
+    }
+
+    if (interval > 1 || interval === 0) {
+        intervalType += 's';
+    }
+
+    return interval + ' ' + intervalType;
+};
+
 function displayGitData(data) {
     console.dir(data.items);
     var sourceElement = '';
+    var updatedSince = '';
     data.items.forEach(function(element) {
-       sourceElement += '<div class="source-content-piece"><h4>' + element.full_name + '</h4>' + '<p class="repo-description">' + element.description + ' </p>' + '<div class="repo-language-circle"></div>' + '<p class="repo-language"> ' + element.language + ' </p>'  + '<p class="repo-stars">' + element.stargazers_count + ' </p>' + '<p class="repo-forks">' + element.forks_count + ' </p>' + '<p class="repo-updated">' + element.updated_at + '</p>' + '\n</div>';
+       updatedSince = timeSince(element.updated_at);
+       if (element.description === null) {
+           element.description = 'No description...';
+       }
+       sourceElement += '<div class="source-content-piece"><h4>' + element.full_name + '</h4>' + '<p class="repo-description">' + element.description + ' </p>' + '<div class="repo-language-circle"></div>' + '<p class="repo-language"> ' + element.language + ' </p>'  + '<div class="git-star"></div><p class="repo-stars"> ' + element.stargazers_count + ' </p>' + '<div class="git-fork"></div><p class="repo-forks"> ' + element.forks_count + ' </p>' + '<p class="repo-updated">Updated ' + updatedSince + ' ago</p>' + '\n</div>';
            //
     });
     $('.js-github-source-content').html(sourceElement);

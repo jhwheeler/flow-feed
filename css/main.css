@@ -164,3 +164,23 @@ input[type="text"] {
     border-radius: 50%;
     display: inline-block;
 }
+
+.git-star {
+    background-image: url(../images/GitHub-Logos/git-star.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    max-width: 100%;
+}
+
+.git-fork {
+    background-image: url(../images/GitHub-Logos/small-git-fork.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    max-width: 100%;
+}
