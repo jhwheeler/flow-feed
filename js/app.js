@@ -50,6 +50,14 @@ function displayTwitterData(data) {
 
 function displayGitData(data) {
     console.dir(data.items);
+    var sourceElement = '';
+    data.items.forEach(function(element) {
+       sourceElement += '<h4>' + element.full_name + '</h4>' + '<p>' + element.description + '</p>' + '<p>' + element.language + '</p>'  + '<p>' + element.stargazers_count + '</p>' + '<p>' + element.forks_count + '</p>' + '<p>' + element.updated_at + '</p>' + '\n';
+           //
+    });
+    $('.js-github-source-content').html(sourceElement);
+
+
 }
 
 function displayStackData(data) {
