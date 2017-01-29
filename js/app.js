@@ -55,7 +55,8 @@ function getGitHub(searchTerm, callback) {
 function getStack(searchTerm, callback) {
     var query = {
         intitle: searchTerm,
-        site: 'stackoverflow'
+        site: 'stackoverflow',
+        filter: 'withbody'
     }
     $.ajax({
             type: 'GET',
@@ -106,6 +107,7 @@ function displayStackData(data) {
     console.dir(data.items);
     data.items.forEach(function(element) {
         console.log(element.title);
+        console.log(element.body);
         console.log(element.link);
         console.log(element.score);
         console.log(element.answer_count);
@@ -113,6 +115,7 @@ function displayStackData(data) {
         console.log(element.creation_date);
         console.log(element.owner.display_name);
         console.log(element.owner.link);
+        console.log("Next question... \n");
     })
 }
 
