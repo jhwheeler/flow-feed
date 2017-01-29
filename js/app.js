@@ -104,6 +104,16 @@ function displayGitData(data) {
 
 function displayStackData(data) {
     console.dir(data.items);
+    data.items.forEach(function(element) {
+        console.log(element.title);
+        console.log(element.link);
+        console.log(element.score);
+        console.log(element.answer_count);
+        console.log(element.tags);
+        console.log(element.creation_date);
+        console.log(element.owner.display_name);
+        console.log(element.owner.link);
+    })
 }
 
 function displayTwitterData(data) {
