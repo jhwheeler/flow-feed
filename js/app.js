@@ -107,10 +107,12 @@ function displayStackData(data) {
     var questionTags = '';
     var sourceElement = '';
     data.items.forEach(function(element) {
+        /*
         for (var i = 0; i < element.tags.length; i++) {
             questionTags +=
                 '<div class="element-tag">' + element.tags[i] + '</div>';
         }
+        */
         sourceElement +=
             '<div class="source-content-piece">' +
                 '<div class="so-content-piece-header">' +
@@ -122,13 +124,13 @@ function displayStackData(data) {
                         '<p class="answer-count">' + element.answer_count + '</p>' +
                         '<p class="answers">answers</p>' +
                     '</div>' +
-                    '<div class=question>' +
-                        '<a href="' + element.link + '" target="_blank">'
+                    '<div class="question">' +
+                        '<a href="' + element.link + '" target="_blank">' +
                         '<h4>' + element.title + '</h4></a>' +
                     '</div>' +
                 '</div>' +
                 '<div class="question">' +
-                    '<h3 class="question-body">' + element.body + '</h3>' +
+                    '<p class="question-body">' + element.body + '</p>' +
                     '<div class="question-tags">' + questionTags + '</div>' +
                     '<div class="ask-date">' +
                         '<p>' + element.creation_date + ' by ' +
@@ -138,10 +140,10 @@ function displayStackData(data) {
                     '</div>' +
                 '</div>' +
             '</div>';
-        getExcerpt();
     });
     $('.js-stack-overflow-source-content').html(sourceElement);
 }
+
 
 /*
 function displayTwitterData(data) {
@@ -151,8 +153,10 @@ function displayTwitterData(data) {
 
 function getExcerpt() {
     var textToHide = $('.question-body').text().substring(400);
+    console.log($('.question-body').text());
     var visibleText = $('.question-body').text().substring(1, 400);
-    $('.question-body').html(visibleText + ('<span>' + textToHide + '</span>'));
+    $('.question-body').html(visibleText + ('<span class="text-to-hide">' + textToHide + '</span>'));
+    $('.text-to-hide').hide();
 }
 
 function watchSubmit() {
@@ -162,6 +166,7 @@ function watchSubmit() {
         //getTwitter(query, displayTwitterData);
         getGitHub(query, displayGitData);
         getStack(query, displayStackData);
+        getExcerpt();
     });
 }
 
