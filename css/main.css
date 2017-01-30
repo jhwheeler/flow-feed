@@ -198,3 +198,13 @@ input[type="text"] {
     width: 15px;
     max-width: 100%;
 }
+
+.vote-box,
+.answer-box {
+    width: 58px;
+    height: 35px;
+    padding: 7px 0px 5px;
+    color: #6a737c;
+    display: block;
+    float: left;
+}

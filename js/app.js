@@ -108,9 +108,29 @@ function displayStackData(data) {
     var elementTags = '';
     data.items.forEach(function(element) {
         sourceElement +=
-            '<div class="source-content-piece"><div class="vote-box"><p>' + element.score + '</p><p>votes</p></div><div class="answer-box"><p>' + element.answer_count + '</p><p>answers</p></div><div class=question-answer-body><a href="' + element.link + '" target="_blank"><h4>' + element.title + '</h4></a><p class="question-body">' + element.body + '</p><div class="question-tags">' + elementTags + '<div class="ask-date"><p>' + element.creation_date + ' by ' + '<a href="' + element.owner.link + '" target="_blank">' + element.owner.display_name + '</a></p>';
+            '<div class="source-content-piece">' +
+                '<div class="so-content-piece-header">' +
+                    '<div class="vote-box">' +
+                        '<p>' + element.score + '</p>' +
+                        '<p>votes</p>' +
+                    '</div>' +
+                    '<div class="answer-box">' +
+                        '<p>' + element.answer_count + '</p>' +
+                        '<p>answers</p>' +
+                    '</div>' +
+                    '<div class=question>' +
+                        '<a href="' + element.link + '" target="_blank">'
+                        '<h4>' + element.title + '</h4></a>' +
+                    '</div>' +
+                '</div>' +
+                '<div class="question"'
+                    '<p class="question-body">' + element.body + '</p>' +
+                    '<div class="question-tags">' + elementTags + '</div>' +
+                    '<div class="ask-date">' +
+                    '<p>' + element.creation_date + ' by ' +
+                    '<a href="' + element.owner.link +
+            '" target="_blank">' + element.owner.display_name + '</a></p></div></div>';
         getExcerpt();
-        console.log(getExcerpt);
     });
     $('.js-stack-overflow-source-content').html(sourceElement);
 }
@@ -124,7 +144,6 @@ function displayTwitterData(data) {
 function getExcerpt() {
     var textToHide = $('.question-body').text().substring(400);
     var visibleText = $('.question-body').text().substring(1, 400);
-    console.log(textToHide);
     $('.question-body').html(visibleText + ('<span>' + textToHide + '</span>'));
 }
 
