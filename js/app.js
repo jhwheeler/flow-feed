@@ -104,32 +104,40 @@ function displayGitData(data) {
 }
 
 function displayStackData(data) {
+    var questionTags = '';
     var sourceElement = '';
-    var elementTags = '';
     data.items.forEach(function(element) {
+        for (var i = 0; i < element.tags.length; i++) {
+            questionTags +=
+                '<div class="element-tag">' + element.tags[i] + '</div>';
+        }
         sourceElement +=
             '<div class="source-content-piece">' +
                 '<div class="so-content-piece-header">' +
                     '<div class="vote-box">' +
-                        '<p>' + element.score + '</p>' +
-                        '<p>votes</p>' +
+                        '<p class="score">' + element.score + '</p>' +
+                        '<p class="votes">votes</p>' +
                     '</div>' +
                     '<div class="answer-box">' +
-                        '<p>' + element.answer_count + '</p>' +
-                        '<p>answers</p>' +
+                        '<p class="answer-count">' + element.answer_count + '</p>' +
+                        '<p class="answers">answers</p>' +
                     '</div>' +
                     '<div class=question>' +
                         '<a href="' + element.link + '" target="_blank">'
                         '<h4>' + element.title + '</h4></a>' +
                     '</div>' +
                 '</div>' +
-                '<div class="question"'
-                    '<p class="question-body">' + element.body + '</p>' +
-                    '<div class="question-tags">' + elementTags + '</div>' +
+                '<div class="question">' +
+                    '<h3 class="question-body">' + element.body + '</h3>' +
+                    '<div class="question-tags">' + questionTags + '</div>' +
                     '<div class="ask-date">' +
-                    '<p>' + element.creation_date + ' by ' +
-                    '<a href="' + element.owner.link +
-            '" target="_blank">' + element.owner.display_name + '</a></p></div></div>';
+                        '<p>' + element.creation_date + ' by ' +
+                        '<a href="' + element.owner.link +
+                            '" target="_blank">' + element.owner.display_name +
+                        '</a></p>' +
+                    '</div>' +
+                '</div>' +
+            '</div>';
         getExcerpt();
     });
     $('.js-stack-overflow-source-content').html(sourceElement);
