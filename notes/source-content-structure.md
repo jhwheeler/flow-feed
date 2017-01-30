@@ -10,7 +10,7 @@ o Javascript <items[i].language> ** 41,130 <items[i].stargazers_count> (F)5,083 
 ##StackOverFlow
 
 Q: Vue and Vue Resource <items[i].title> <items[i].link>
-I'm trying to send a post request via vue-resource... <where do I get the text?>
+I'm trying to send a post request via vue-resource... <items[i].body>
 2 votes | 3 answers <items[i].score> & <items[i].answer_count>
 [jquery] [vue.js] <items[i].tags>
 asked Dec 16 '15 by Joshua <items[i].creation_date> & <items[i].owner.display_name> & <items[i].owner.link>
