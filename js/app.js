@@ -121,7 +121,12 @@ function displayStackData(data) {
     data.items.forEach(function(element) {
         for (var i = 0; i < element.tags.length; i++) {
             questionTags +=
-                '<div class="element-tag">' + element.tags[i] + '</div>';
+                '<div class="element-tag">' +
+                '<a href="https://stackoverflow.com/questions/tagged/' +
+                element.tags[i] + '">' +
+                element.tags[i] +
+                '</a>' +
+                '</div>';
         }
         sourceElement +=
             '<div class="source-content-piece">' +

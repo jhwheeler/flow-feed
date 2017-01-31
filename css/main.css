@@ -37,6 +37,16 @@ a {
     text-decoration: none;
 }
 
+pre {
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: pre;
+    white-space: -moz-pre-wrap;
+    white-space: pre-wrap;
+    white-space: pre\9;
+    word-break: keep-all;
+}
+
 .search-area {
     text-align: center;
     margin: 0 auto;
@@ -217,7 +227,7 @@ input[type="text"] {
     font-size: 16px;
     line-height: 16.9px;
     text-align: left;
-    float: right;
+    float: left;
 }
 
 .question::hover {
@@ -231,6 +241,7 @@ input[type="text"] {
 .stat-container {
     display: inline-block;
     text-align: center;
+    //float: left;
 }
 
 .stat-container p {
@@ -243,7 +254,6 @@ input[type="text"] {
     height: 35px;
     padding: 7px 0px 5px;
     display: block;
-    float: left;
 }
 
 .score,
