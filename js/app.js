@@ -98,7 +98,19 @@ function displayGitData(data) {
            element.description = 'No description...';
        }
        sourceElement +=
-           '<div class="source-content-piece"><a href="' + element.html_url + '" target="_blank"><h4>' + element.full_name + '</h4></a>' + '<p class="repo-description">' + element.description + ' </p><div class="repo-language-circle"></div><p class="repo-language"> ' + element.language + ' </p>'  + '<div class="git-star"></div><p class="repo-stars"> ' + element.stargazers_count + ' </p>' + '<div class="git-fork"></div><p class="repo-forks"> ' + element.forks_count + ' </p>' + '<p class="repo-updated">Updated ' + updatedSince + ' ago</p>' + '\n</div>';
+           '<div class="source-content-piece">' +
+               '<a href="' + element.html_url + '" target="_blank">' +
+                   '<h4>' + element.full_name + '</h4>' +
+               '</a>' +
+               '<p class="repo-description">' + element.description + ' </p>' +
+               '<div class="repo-language-circle"></div>' +
+               '<p class="repo-language"> ' + element.language + ' </p>'  +
+               '<div class="git-star"></div>' +
+               '<p class="repo-stars"> ' + element.stargazers_count + ' </p>' +
+               '<div class="git-fork"></div>' +
+               '<p class="repo-forks"> ' + element.forks_count + ' </p>' +
+               '<p class="repo-updated">Updated ' + updatedSince + ' ago</p> \n' +
+           '</div>';
     });
     $('.js-github-source-content').html(sourceElement);
 }
