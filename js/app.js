@@ -119,29 +119,29 @@ function displayStackData(data) {
     var questionTags = '';
     var sourceElement = '';
     data.items.forEach(function(element) {
-        /*
         for (var i = 0; i < element.tags.length; i++) {
             questionTags +=
                 '<div class="element-tag">' + element.tags[i] + '</div>';
         }
-        */
         sourceElement +=
             '<div class="source-content-piece">' +
                 '<div class="so-content-piece-header">' +
-                    '<div class="vote-box">' +
-                        '<p class="score">' + element.score + '</p>' +
-                        '<p class="votes">votes</p>' +
-                    '</div>' +
-                    '<div class="answer-box">' +
-                        '<p class="answer-count">' + element.answer_count + '</p>' +
-                        '<p class="answers">answers</p>' +
+                    '<div class="stat-container">' +
+                        '<div class="vote-box">' +
+                            '<p class="score">' + element.score + '</p>' +
+                            '<p class="votes">votes</p>' +
+                        '</div>' +
+                        '<div class="answer-box">' +
+                            '<p class="answer-count">' + element.answer_count + '</p>' +
+                            '<p class="answers">answers</p>' +
+                        '</div>' +
                     '</div>' +
                     '<div class="question">' +
                         '<a href="' + element.link + '" target="_blank">' +
                         '<h4>' + element.title + '</h4></a>' +
                     '</div>' +
                 '</div>' +
-                '<div class="question">' +
+                '<div class="question-content">' +
                     '<p class="question-body">' + element.body + '</p>' +
                     '<div class="question-tags">' + questionTags + '</div>' +
                     '<div class="ask-date">' +
@@ -178,7 +178,7 @@ function watchSubmit() {
         //getTwitter(query, displayTwitterData);
         getGitHub(query, displayGitData);
         getStack(query, displayStackData);
-        getExcerpt();
+        //getExcerpt();
     });
 }
 
