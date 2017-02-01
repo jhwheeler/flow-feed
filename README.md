@@ -2,7 +2,7 @@
 
 ## Interactive research feed: the latest news, code, and answers all at your fingertips.
 
-### v1.0: Set to Release 10 Jan 2017 
+### v1.0: Set to Release 10 Jan 2017
 
 FlowFeed is being designed specifically for programmers to quickly and easily get information from three searchable content resources useful to our field: **Twitter**, **StackOverflow**, and **Github**.
 

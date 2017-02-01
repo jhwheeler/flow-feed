@@ -128,6 +128,7 @@ function displayStackData(data) {
                 '</a>' +
                 '</div>';
         }
+        var formattedDate = formatDate(element.creation_date);
         sourceElement +=
             '<div class="source-content-piece">' +
                 '<div class="so-content-piece-header">' +
@@ -150,7 +151,7 @@ function displayStackData(data) {
                     '<p class="question-body">' + element.body + '</p>' +
                     '<div class="question-tags">' + questionTags + '</div>' +
                     '<div class="ask-date">' +
-                        '<p>' + element.creation_date + ' by ' +
+                        '<p>asked ' + formattedDate + ' by ' +
                         '<a href="' + element.owner.link +
                             '" target="_blank">' + element.owner.display_name +
                         '</a></p>' +
@@ -159,6 +160,14 @@ function displayStackData(data) {
             '</div>';
     });
     $('.js-stack-overflow-source-content').html(sourceElement);
+}
+
+function formatDate(date) {
+    //convert Unix timestamp to Date object
+    var creationDate = new Date(date*1000).toDateString();
+    //if < 24 hours ago, return # of hours
+    //if > 24 hours ago, return MM/DD/YY, e.g. "Feb 1 '17"
+    return creationDate;
 }
 
 
