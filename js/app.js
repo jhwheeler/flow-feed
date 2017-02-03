@@ -2,6 +2,11 @@ var GitHub_Base_URL = 'https://api.github.com/search/repositories';
 var StackOverFlow_Base_URL = 'https://api.stackexchange.com/2.2/search';
 
 var helperFunctions = {
+    searchSuggestedTopic: function() {
+        var thisTopic = $(this).text();
+        $('.js-query').val(thisTopic);
+        $('.js-search-form').submit();
+    },
     timeSince: function(date) {
         if (typeof date !== 'object') {
             date = new Date(date);
@@ -56,6 +61,18 @@ var helperFunctions = {
         var visibleText = $('.question-body').text().substring(1, 400);
         $('.question-body').html(visibleText + ('<span class="text-to-hide">' + textToHide + '</span>'));
         $('.text-to-hide').hide();
+    },
+    changeLanguageColor: function(language) {
+        switch (language) {
+            case 'python':
+                $('.js-github-source-content').find('.repo-language-circle').css('background-color', 'red');
+                break;
+            case 'javascript':
+                $('.js-github-source-content').find('.repo-language-circle').css('background-color', 'yellow');
+                break;
+            default:
+                $('.js-github-source-content').find('.repo-language-circle').css('background-color', 'gray');
+        }
     }
 }
 
@@ -90,7 +107,7 @@ var dataDisplayers = {
         var sourceElement = '';
         var updatedSince = '';
         data.items.forEach(function(element) {
-           updatedSince = timeSince(element.updated_at);
+           updatedSince = helperFunctions.timeSince(element.updated_at);
            if (element.description === null) {
                element.description = 'No description...';
            }
@@ -108,6 +125,8 @@ var dataDisplayers = {
                    '<p class="repo-forks"> ' + element.forks_count + ' </p>' +
                    '<p class="repo-updated">Updated ' + updatedSince + ' ago</p> \n' +
                '</div>';
+           helperFunctions.changeLanguageColor(element.language);
+           console.log(element.language);
         });
         $('.js-github-source-content').html(sourceElement);
     },
@@ -124,10 +143,14 @@ var dataDisplayers = {
                     '</a>' +
                     '</div>';
             }
-            var formattedDate = formatDate(element.creation_date);
+            var formattedDate = helperFunctions.formatDate(element.creation_date);
             sourceElement +=
                 '<div class="source-content-piece">' +
                     '<div class="so-content-piece-header">' +
+                        '<div class="question">' +
+                            '<a href="' + element.link + '" target="_blank">' +
+                            '<h4>' + element.title + '</h4></a>' +
+                        '</div>' +
                         '<div class="stat-container">' +
                             '<div class="vote-box">' +
                                 '<p class="score">' + element.score + '</p>' +
@@ -137,10 +160,6 @@ var dataDisplayers = {
                                 '<p class="answer-count">' + element.answer_count + '</p>' +
                                 '<p class="answers">answers</p>' +
                             '</div>' +
-                        '</div>' +
-                        '<div class="question">' +
-                            '<a href="' + element.link + '" target="_blank">' +
-                            '<h4>' + element.title + '</h4></a>' +
                         '</div>' +
                     '</div>' +
                     '<div class="question-content">' +
@@ -163,13 +182,13 @@ function watchSubmit() {
     $('.js-search-form').submit(function(e) {
         e.preventDefault();
         var query = $(this).find('.js-query').val();
-        //getTwitter(query, displayTwitterData);
-        getGitHub(query, displayGitData);
-        getStack(query, displayStackData);
+        dataGetters.getGitHub(query, dataDisplayers.displayGitData);
+        dataGetters.getStack(query, dataDisplayers.displayStackData);
         //getExcerpt();
     });
 }
 
 $(function() {
+    $('.js-suggested-topic').on('click', helperFunctions.searchSuggestedTopic);
     watchSubmit();
 });

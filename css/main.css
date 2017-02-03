@@ -179,7 +179,6 @@ input[type="text"] {
 .repo-language-circle {
     width: 12px;
     height: 12px;
-    background-color: red;
     border-radius: 50%;
     display: inline-block;
 }
@@ -223,7 +222,7 @@ input[type="text"] {
     line-height: 16.9px;
     text-align: left;
     display: inline-block;
-    max-width: 70%;
+    max-width: 85%;
 }
 
 .question::hover {
@@ -237,7 +236,7 @@ input[type="text"] {
 .stat-container {
     display: inline-block;
     text-align: center;
-    //float: left;
+    float: right;
 }
 
 .stat-container p {
