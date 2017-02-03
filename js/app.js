@@ -7,52 +7,12 @@ var helperFunctions = {
         $('.js-query').val(thisTopic);
         $('.js-search-form').submit();
     },
-    timeSince: function(date) {
-        if (typeof date !== 'object') {
-            date = new Date(date);
-        }
-
-        var seconds = Math.floor((new Date() - date) / 1000);
-        var intervalType;
-
-        var interval = Math.floor(seconds / 31536000);
-        if (interval >= 1) {
-            intervalType = 'year';
-        } else {
-            interval = Math.floor(seconds / 2592000);
-            if (interval >= 1) {
-                intervalType = 'month';
-            } else {
-                interval = Math.floor(seconds / 86400);
-                if (interval >= 1) {
-                    intervalType = 'day';
-                } else {
-                    interval = Math.floor(seconds / 3600);
-                    if (interval >= 1) {
-                        intervalType = 'hour';
-                    } else {
-                        interval = Math.floor(seconds / 60);
-                        if (interval >= 1) {
-                            intervalType = 'minute';
-                        } else {
-                            interval = seconds;
-                            intervalType = 'second';
-                        }
-                    }
-                }
-            }
-        }
-
-        if (interval > 1 || interval === 0) {
-            intervalType += 's';
-        }
-
-        return interval + ' ' + intervalType;
+    formatGitDate: function(date) {
+        var creationDate = new Date(date).toDateString();
+        return creationDate;
     },
-    formatDate: function(date) {
+    formatStackDate: function(date) {
         var creationDate = new Date(date*1000).toDateString();
-        //if < 24 hours ago, return # of hours
-        //if > 24 hours ago, return MM/DD/YY, e.g. "Feb 1 '17"
         return creationDate;
     },
     getExcerpt: function() {
@@ -64,14 +24,34 @@ var helperFunctions = {
     },
     changeLanguageColor: function(language) {
         switch (language) {
-            case 'python':
-                $('.js-github-source-content').find('.repo-language-circle').css('background-color', 'red');
+            case 'Python':
+                $('.repo-language-circle').css('background-color', '#3572a5');
                 break;
-            case 'javascript':
-                $('.js-github-source-content').find('.repo-language-circle').css('background-color', 'yellow');
+            case 'JavaScript':
+                console.log("The language is JavaScript");
+                $('.repo-language-circle').css('background-color', '#f1e05a');
+                console.log($('.repo-language-circle'));
+                break;
+            case 'Go':
+                $('.repo-language-circle').css('background-color', '#375eab');
+                break;
+            case 'Java':
+                $('.repo-language-circle').css('background-color', '#b07219');
+                break;
+            case 'HTML':
+                $('.repo-language-circle').css('background-color', '#e44b23');
+                break;
+            case 'CSS':
+                $('.repo-language-circle').css('background-color', '#563d7c');
+                break;
+            case 'PHP':
+                $('.repo-language-circle').css('background-color', '#4f5d95');
+                break;
+            case 'C':
+                $('.repo-language-circle').css('background-color', '#555555');
                 break;
             default:
-                $('.js-github-source-content').find('.repo-language-circle').css('background-color', 'gray');
+                $('.repo-language-circle').css('background-color', 'pink');
         }
     }
 }
@@ -107,26 +87,25 @@ var dataDisplayers = {
         var sourceElement = '';
         var updatedSince = '';
         data.items.forEach(function(element) {
-           updatedSince = helperFunctions.timeSince(element.updated_at);
-           if (element.description === null) {
-               element.description = 'No description...';
-           }
-           sourceElement +=
-               '<div class="source-content-piece">' +
-                   '<a href="' + element.html_url + '" target="_blank">' +
-                       '<h4>' + element.full_name + '</h4>' +
-                   '</a>' +
-                   '<p class="repo-description">' + element.description + ' </p>' +
-                   '<div class="repo-language-circle"></div>' +
-                   '<p class="repo-language"> ' + element.language + ' </p>'  +
-                   '<div class="git-star"></div>' +
-                   '<p class="repo-stars"> ' + element.stargazers_count + ' </p>' +
-                   '<div class="git-fork"></div>' +
-                   '<p class="repo-forks"> ' + element.forks_count + ' </p>' +
-                   '<p class="repo-updated">Updated ' + updatedSince + ' ago</p> \n' +
-               '</div>';
-           helperFunctions.changeLanguageColor(element.language);
-           console.log(element.language);
+            var formattedDate = helperFunctions.formatGitDate(element.pushed_at);
+            if (element.description === null) {
+                element.description = 'No description...';
+            }
+            sourceElement +=
+                '<div class="source-content-piece">' +
+                    '<a href="' + element.html_url + '" target="_blank">' +
+                         '<h4>' + element.full_name + '</h4>' +
+                    '</a>' +
+                    '<p class="repo-description">' + element.description + ' </p>' +
+                    '<div class="repo-language-circle"></div>' +
+                    '<p class="repo-language"> ' + element.language + ' </p>'  +
+                    '<div class="git-star"></div>' +
+                    '<p class="repo-stars"> ' + element.stargazers_count + ' </p>' +
+                    '<div class="git-fork"></div>' +
+                    '<p class="repo-forks"> ' + element.forks_count + ' </p>' +
+                    '<p class="repo-updated">Updated ' + formattedDate + '</p> \n' +
+                '</div>';
+            helperFunctions.changeLanguageColor(element.language);
         });
         $('.js-github-source-content').html(sourceElement);
     },
@@ -143,7 +122,7 @@ var dataDisplayers = {
                     '</a>' +
                     '</div>';
             }
-            var formattedDate = helperFunctions.formatDate(element.creation_date);
+            var formattedDate = helperFunctions.formatStackDate(element.creation_date);
             sourceElement +=
                 '<div class="source-content-piece">' +
                     '<div class="so-content-piece-header">' +

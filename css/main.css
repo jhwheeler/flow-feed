@@ -181,6 +181,7 @@ input[type="text"] {
     height: 12px;
     border-radius: 50%;
     display: inline-block;
+    background-color: gray;
 }
 
 .git-star {
