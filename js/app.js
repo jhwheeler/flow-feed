@@ -15,12 +15,15 @@ var helperFunctions = {
         var creationDate = new Date(date*1000).toDateString();
         return creationDate;
     },
+    /*
     getExcerpt: function() {
+        console.log("inside getExcerpt")
         var textToHide = $('.question-body').text().substring(400);
-        console.log($('.question-body').text());
         var visibleText = $('.question-body').text().substring(1, 400);
         $('.question-body').html(visibleText + ('<span class="text-to-hide">' + textToHide + '</span>'));
         $('.text-to-hide').hide();
+        console.log($('.question-body'));
+        console.log($('.question-body').html());
     },
     changeLanguageColor: function(language) {
         switch (language) {
@@ -30,7 +33,6 @@ var helperFunctions = {
             case 'JavaScript':
                 console.log("The language is JavaScript");
                 $('.repo-language-circle').css('background-color', '#f1e05a');
-                console.log($('.repo-language-circle'));
                 break;
             case 'Go':
                 $('.repo-language-circle').css('background-color', '#375eab');
@@ -54,6 +56,7 @@ var helperFunctions = {
                 $('.repo-language-circle').css('background-color', 'pink');
         }
     }
+    */
 }
 
 var dataGetters = {
@@ -97,7 +100,9 @@ var dataDisplayers = {
                          '<h4>' + element.full_name + '</h4>' +
                     '</a>' +
                     '<p class="repo-description">' + element.description + ' </p>' +
-                    '<div class="repo-language-circle"></div>' +
+                    /*
+                    '<div class="repo-language-circle" data-language="' + element.language + '"></div>' +
+                    */
                     '<p class="repo-language"> ' + element.language + ' </p>'  +
                     '<div class="git-star"></div>' +
                     '<p class="repo-stars"> ' + element.stargazers_count + ' </p>' +
@@ -105,9 +110,13 @@ var dataDisplayers = {
                     '<p class="repo-forks"> ' + element.forks_count + ' </p>' +
                     '<p class="repo-updated">Updated ' + formattedDate + '</p> \n' +
                 '</div>';
-            helperFunctions.changeLanguageColor(element.language);
         });
         $('.js-github-source-content').html(sourceElement);
+        /*
+        $('.repo-language-circle').each(function(i, obj) {
+            helperFunctions.changeLanguageColor($(this).data('language'));
+        })
+        */
     },
     displayStackData: function(data) {
         var questionTags = '';
@@ -142,7 +151,7 @@ var dataDisplayers = {
                         '</div>' +
                     '</div>' +
                     '<div class="question-content">' +
-                        '<p class="question-body">' + element.body + '</p>' +
+                        '<div class="question-body">' + element.body + '</div>' +
                         '<div class="question-tags">' + questionTags + '</div>' +
                         '<div class="ask-date">' +
                             '<p>asked ' + formattedDate + ' by ' +
@@ -163,7 +172,6 @@ function watchSubmit() {
         var query = $(this).find('.js-query').val();
         dataGetters.getGitHub(query, dataDisplayers.displayGitData);
         dataGetters.getStack(query, dataDisplayers.displayStackData);
-        //getExcerpt();
     });
 }
 
