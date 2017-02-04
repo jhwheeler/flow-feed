@@ -62,7 +62,8 @@ var helperFunctions = {
 var dataGetters = {
     getGitHub: function(searchTerm, callback) {
         var query = {
-            q: searchTerm
+            q: searchTerm,
+            sort: 'updated'
         }
         $.getJSON(GitHub_Base_URL, query, callback);
     },
@@ -71,6 +72,7 @@ var dataGetters = {
         var query = {
             intitle: searchTerm,
             site: 'stackoverflow',
+            sort: 'creation',
             filter: 'withbody'
         }
         $.ajax({
