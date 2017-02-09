@@ -145,7 +145,7 @@ var dataDisplayers = {
                         '</div>' +
                     '</div>' +
                     '<div class="question-content">' +
-                        '<div class="question-body">' + elementBody + '</div>' +
+                        '<div class="question-body">' + elementBody + '...</div>' +
                         '<div class="question-tags">' + questionTags + '</div>' +
                         '<div class="ask-date">' +
                             '<p>asked ' + formattedDate + ' by ' +
