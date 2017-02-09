@@ -18,13 +18,14 @@ var helperFunctions = {
     /*
     getExcerpt: function() {
         console.log("inside getExcerpt")
+
         var textToHide = $('.question-body').text().substring(400);
-        var visibleText = $('.question-body').text().substring(1, 400);
+        var visibleText = $('.question-body').text().substring(0, 400);
         $('.question-body').html(visibleText + ('<span class="text-to-hide">' + textToHide + '</span>'));
         $('.text-to-hide').hide();
         console.log($('.question-body'));
         console.log($('.question-body').html());
-    },
+    }
     changeLanguageColor: function(language) {
         switch (language) {
             case 'Python':
@@ -133,6 +134,7 @@ var dataDisplayers = {
                     '</a>' +
                     '</div>';
             }
+            var elementBody = element.body.substring(0, 400);
             var formattedDate = helperFunctions.formatStackDate(element.creation_date);
             sourceElement +=
                 '<div class="source-content-piece">' +
@@ -153,7 +155,7 @@ var dataDisplayers = {
                         '</div>' +
                     '</div>' +
                     '<div class="question-content">' +
-                        '<div class="question-body">' + element.body + '</div>' +
+                        '<div class="question-body">' + elementBody + '</div>' +
                         '<div class="question-tags">' + questionTags + '</div>' +
                         '<div class="ask-date">' +
                             '<p>asked ' + formattedDate + ' by ' +
