@@ -16,16 +16,6 @@ var helperFunctions = {
         return creationDate;
     },
     /*
-    getExcerpt: function() {
-        console.log("inside getExcerpt")
-
-        var textToHide = $('.question-body').text().substring(400);
-        var visibleText = $('.question-body').text().substring(0, 400);
-        $('.question-body').html(visibleText + ('<span class="text-to-hide">' + textToHide + '</span>'));
-        $('.text-to-hide').hide();
-        console.log($('.question-body'));
-        console.log($('.question-body').html());
-    }
     changeLanguageColor: function(language) {
         switch (language) {
             case 'Python':
