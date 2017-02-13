@@ -3,6 +3,7 @@
 }
 
 body {
+    margin: 0;
     font-family: Helvetica, sans-serif;
     background: #311d6a;
     background: -moz-linear-gradient(left, #311d6a 0%, #1a1335 100%);
@@ -119,7 +120,7 @@ input[type="text"] {
 
 .source-container {
     border-radius: 5px;
-    margin: 20px;
+    margin: 5px;
     overflow: hidden;
 }
 
@@ -162,6 +163,7 @@ input[type="text"] {
     font-weight: 600;
     color: #4078c0;
     line-height: 30px;
+    word-wrap: break-word;
 }
 
 .repo-description {
@@ -236,9 +238,12 @@ input[type="text"] {
 }
 
 .stat-container {
+    line-height: 16.9px;
     display: inline-block;
     text-align: center;
     float: right;
+    max-width: 15%;
+    margin: 26.6px 0px;
 }
 
 .stat-container p {
@@ -293,4 +298,21 @@ input[type="text"] {
     color: #242729;
     line-height: 18px;
     text-align: left;
+}
+
+footer > span > a {
+    color: #fff;
+}
+
+footer {
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: 0 auto;
+    height: 60px;
+    width: 100%;
+    color: #fff;
+    background-color: #2f51ae;
 }

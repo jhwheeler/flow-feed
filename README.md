@@ -17,3 +17,7 @@ The user will also be able to focus on and enlarge one of the content containers
 In the mature version, the user will be able to add RSS feeds, as well as any site they wish (for sites without usable APIs, we can use the Google API to render a `site:example.com` search -- albeit with a limited user experience, especially due to styling).
 
 Therefore, in v2.0 and beyond, FlowFeed will become not just interactive, but completely customizable as well.
+
+---
+
+This project strives to comply with §508 and WCAG 2.0 guidelines as closely as possible. Please see our list of known accessibility issues.
