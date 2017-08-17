@@ -158,6 +158,10 @@ input[type="text"] {
     border-top: 1px solid gray;
 }
 
+.source-content-piece:hover {
+    background-color: #ececf9;
+}
+
 .source-content h4 {
     font-size: 20px;
     font-weight: 600;
