@@ -158,6 +158,10 @@ input[type="text"] {
     border-top: 1px solid gray;
 }
 
+.source-content-piece:hover {
+    background-color: #ececf9;
+}
+
 .source-content h4 {
     font-size: 20px;
     font-weight: 600;
@@ -315,4 +319,14 @@ footer {
     width: 100%;
     color: #fff;
     background-color: #2f51ae;
+}
+
+@media only screen and (max-width: 760px) {
+    .search-button {
+        margin: 5px;
+    }
+
+    #source-container-2 {
+        margin-bottom: 80px;
+    }
 }
