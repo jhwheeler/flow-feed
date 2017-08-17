@@ -60,9 +60,6 @@ var dataDisplayers = {
                          '<h4>' + element.full_name + '</h4>' +
                     '</a>' +
                     '<p class="repo-description">' + element.description + ' </p>' +
-                    /*
-                    '<div class="repo-language-circle" data-language="' + element.language + '"></div>' +
-                    */
                     '<p class="repo-language"> ' + element.language + ' </p>'  +
                     '<div class="git-star"></div>' +
                     '<p class="repo-stars"> ' + element.stargazers_count + ' </p>' +
@@ -72,11 +69,6 @@ var dataDisplayers = {
                 '</div>';
         });
         $('.js-github-source-content').html(sourceElement);
-        /*
-        $('.repo-language-circle').each(function(i, obj) {
-            helperFunctions.changeLanguageColor($(this).data('language'));
-        })
-        */
     },
     displayStackData: function(data) {
         var questionTags = '';
