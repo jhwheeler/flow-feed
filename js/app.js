@@ -15,39 +15,6 @@ var helperFunctions = {
         var creationDate = new Date(date*1000).toDateString();
         return creationDate;
     },
-    /*
-    changeLanguageColor: function(language) {
-        switch (language) {
-            case 'Python':
-                $('.repo-language-circle').css('background-color', '#3572a5');
-                break;
-            case 'JavaScript':
-                console.log("The language is JavaScript");
-                $('.repo-language-circle').css('background-color', '#f1e05a');
-                break;
-            case 'Go':
-                $('.repo-language-circle').css('background-color', '#375eab');
-                break;
-            case 'Java':
-                $('.repo-language-circle').css('background-color', '#b07219');
-                break;
-            case 'HTML':
-                $('.repo-language-circle').css('background-color', '#e44b23');
-                break;
-            case 'CSS':
-                $('.repo-language-circle').css('background-color', '#563d7c');
-                break;
-            case 'PHP':
-                $('.repo-language-circle').css('background-color', '#4f5d95');
-                break;
-            case 'C':
-                $('.repo-language-circle').css('background-color', '#555555');
-                break;
-            default:
-                $('.repo-language-circle').css('background-color', 'pink');
-        }
-    }
-    */
 }
 
 var dataGetters = {
