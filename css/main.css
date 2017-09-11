@@ -308,6 +308,10 @@ footer > span > a {
     color: #fff;
 }
 
+footer > span > a:hover {
+  color: #300a50;
+}
+
 footer {
     text-align: center;
     position: fixed;
