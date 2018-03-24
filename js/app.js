@@ -1,25 +1,25 @@
-var GitHub_Base_URL = 'https://api.github.com/search/repositories';
-var StackOverFlow_Base_URL = 'https://api.stackexchange.com/2.2/search';
+const GitHub_Base_URL = 'https://api.github.com/search/repositories';
+const StackOverFlow_Base_URL = 'https://api.stackexchange.com/2.2/search';
 
-var helperFunctions = {
+const helperFunctions = {
     searchSuggestedTopic: function() {
-        var thisTopic = $(this).text();
+        const thisTopic = $(this).text();
         $('.js-query').val(thisTopic);
         $('.js-search-form').submit();
     },
     formatGitDate: function(date) {
-        var creationDate = new Date(date).toDateString();
+        const creationDate = new Date(date).toDateString();
         return creationDate;
     },
     formatStackDate: function(date) {
-        var creationDate = new Date(date*1000).toDateString();
+        const creationDate = new Date(date*1000).toDateString();
         return creationDate;
     },
 }
 
-var dataGetters = {
+const dataGetters = {
     getGitHub: function(searchTerm, callback) {
-        var query = {
+        const query = {
             q: searchTerm,
             sort: 'updated'
         }
@@ -27,7 +27,7 @@ var dataGetters = {
     },
 
     getStack: function(searchTerm, callback) {
-        var query = {
+        const query = {
             intitle: searchTerm,
             site: 'stackoverflow',
             sort: 'creation',
@@ -45,12 +45,12 @@ var dataGetters = {
     }
 }
 
-var dataDisplayers = {
+const dataDisplayers = {
     displayGitData: function(data) {
-        var sourceElement = '';
-        var updatedSince = '';
+        let sourceElement = '';
+        let updatedSince = '';
         data.items.forEach(function(element) {
-            var formattedDate = helperFunctions.formatGitDate(element.pushed_at);
+            const formattedDate = helperFunctions.formatGitDate(element.pushed_at);
             if (element.description === null) {
                 element.description = 'No description...';
             }
@@ -71,10 +71,10 @@ var dataDisplayers = {
         $('.js-github-source-content').html(sourceElement);
     },
     displayStackData: function(data) {
-        var questionTags = '';
-        var sourceElement = '';
+        let questionTags = '';
+        let sourceElement = '';
         data.items.forEach(function(element) {
-            for (var i = 0; i < element.tags.length; i++) {
+            for (let i = 0; i < element.tags.length; i++) {
                 questionTags +=
                     '<div class="element-tag">' +
                     '<a href="https://stackoverflow.com/questions/tagged/' +
@@ -83,8 +83,8 @@ var dataDisplayers = {
                     '</a>' +
                     '</div>';
             }
-            var elementBody = element.body.substring(0, 400);
-            var formattedDate = helperFunctions.formatStackDate(element.creation_date);
+            const elementBody = element.body.substring(0, 400);
+            const formattedDate = helperFunctions.formatStackDate(element.creation_date);
             sourceElement +=
                 '<div class="source-content-piece">' +
                     '<div class="so-content-piece-header">' +
@@ -122,7 +122,7 @@ var dataDisplayers = {
 function watchSubmit() {
     $('.js-search-form').submit(function(e) {
         e.preventDefault();
-        var query = $(this).find('.js-query').val();
+        const query = $(this).find('.js-query').val();
         dataGetters.getGitHub(query, dataDisplayers.displayGitData);
         dataGetters.getStack(query, dataDisplayers.displayStackData);
     });
